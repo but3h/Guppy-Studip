@@ -25,8 +25,8 @@ export default function Home() {
       <section className="relative h-[80vh] flex items-center overflow-hidden bg-sky-900">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&q=80&w=2000" 
-            alt="Beautiful Aquarium" 
+            src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=2000" 
+            alt="Vibrant Coral Reef" 
             className="w-full h-full object-cover opacity-40"
             referrerPolicy="no-referrer"
           />
