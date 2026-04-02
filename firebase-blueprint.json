@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Fish Product",
+      "description": "A fish, aquatic plant, or aquarium accessory.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "description": "Product name" },
+        "description": { "type": "string", "description": "Long description" },
+        "price": { "type": "number", "description": "Price in MMK" },
+        "category": { "type": "string", "enum": ["guppy", "betta", "goldfish", "plant", "accessory"] },
+        "photoUrl": { "type": "string", "format": "url" },
+        "maleStock": { "type": "number", "description": "Current male stock quantity" },
+        "femaleStock": { "type": "number", "description": "Current female stock quantity" },
+        "specs": { "type": "object", "description": "Key specifications (e.g., Color: Blue, Type: Halfmoon)" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "description", "price", "category", "photoUrl"]
+    },
+    "User": {
+      "title": "User Profile",
+      "description": "User account details and role.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string", "format": "url" },
+        "role": { "type": "string", "enum": ["admin", "user"], "description": "User role" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Order": {
+      "title": "Customer Order",
+      "description": "An order placed by a customer for one or more products.",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": { "type": "string" },
+              "productName": { "type": "string" },
+              "price": { "type": "number" },
+              "quantity": { "type": "number" },
+              "totalPrice": { "type": "number" },
+              "gender": { "type": "string", "enum": ["male", "female"] }
+            },
+            "required": ["productId", "productName", "price", "quantity", "totalPrice", "gender"]
+          }
+        },
+        "totalPrice": { "type": "number" },
+        "customerUid": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhoto": { "type": "string" },
+        "phone": { "type": "string" },
+        "telegram": { "type": "string", "description": "Customer's Telegram account username or phone" },
+        "paymentMethod": { "type": "string", "enum": ["cod", "kpay", "wave", "bank"] },
+        "address": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "shipped", "delivered", "cancelled"] },
+        "isArchived": { "type": "boolean", "description": "Whether the order is archived in history" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["items", "totalPrice", "phone", "paymentMethod", "address", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of solar products for sale."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and roles."
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders for solar products."
+    }
+  }
+}
