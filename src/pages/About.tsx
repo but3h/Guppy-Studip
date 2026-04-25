@@ -3,11 +3,11 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function About() {
   return (
-    <div className="min-h-[60vh] bg-gray-50 flex items-center justify-center py-20 px-4">
+    <div className="min-h-[60vh] flex items-center justify-center py-20 px-4">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full bg-white rounded-[2.5rem] p-10 shadow-sm border border-gray-100 text-center"
+        className="max-w-md w-full bg-white/60 backdrop-blur-xl rounded-[2.5rem] p-10 shadow-xl border border-white/40 text-center"
       >
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
         <p className="text-gray-500 mb-10 text-sm">Get in touch with Guppy Studio for any inquiries.</p>
@@ -15,7 +15,7 @@ export default function About() {
         <div className="space-y-6">
           <a 
             href="mailto:butchh246@gmail.com"
-            className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 group hover:bg-primary/5 transition-colors"
+            className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/30 group hover:bg-primary/10 transition-colors"
           >
             <div className="p-3 bg-white rounded-xl shadow-sm text-primary group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6" />
@@ -30,7 +30,7 @@ export default function About() {
             href="https://t.me/Duhhh_3"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 group hover:bg-primary/5 transition-colors"
+            className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/30 group hover:bg-primary/10 transition-colors"
           >
             <div className="p-3 bg-white rounded-xl shadow-sm text-primary group-hover:scale-110 transition-transform">
               <Send className="w-6 h-6" />
@@ -43,7 +43,7 @@ export default function About() {
 
           <a 
             href="tel:+959799997070"
-            className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 group hover:bg-primary/5 transition-colors"
+            className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/30 group hover:bg-primary/10 transition-colors"
           >
             <div className="p-3 bg-white rounded-xl shadow-sm text-primary group-hover:scale-110 transition-transform">
               <Phone className="w-6 h-6" />
@@ -54,7 +54,7 @@ export default function About() {
             </div>
           </a>
 
-          <div className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 group hover:bg-primary/5 transition-colors">
+          <div className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/30 group hover:bg-primary/10 transition-colors">
             <div className="p-3 bg-white rounded-xl shadow-sm text-primary group-hover:scale-110 transition-transform">
               <MapPin className="w-6 h-6" />
             </div>

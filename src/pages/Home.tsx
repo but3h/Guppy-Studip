@@ -22,16 +22,8 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&q=80&w=2000" 
-            alt="Guppy Background" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
-        </div>
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-sky-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-900 to-sky-950 opacity-50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div 
@@ -57,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white/20 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Guppy Studio?</h2>
@@ -73,7 +65,7 @@ export default function Home() {
               <motion.div 
                 key={i}
                 whileHover={{ y: -10 }}
-                className="p-8 bg-gray-50 rounded-3xl border border-gray-100"
+                className="p-8 bg-white/40 backdrop-blur-lg rounded-3xl border border-white/30 shadow-sm transition-all"
               >
                 <div className="w-12 h-12 bg-sky-50 rounded-2xl flex items-center justify-center mb-6">
                   <benefit.icon className="w-6 h-6 text-primary" />

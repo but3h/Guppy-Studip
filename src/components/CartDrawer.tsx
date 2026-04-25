@@ -106,16 +106,16 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] bg-black/20 backdrop-blur-md"
           />
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-md bg-white shadow-2xl flex flex-col"
+            className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-md bg-white/80 backdrop-blur-2xl shadow-2xl flex flex-col border-l border-white/20"
           >
-            <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10">
+            <div className="p-6 border-b border-white/20 flex justify-between items-center bg-transparent sticky top-0 z-10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-primary/10 rounded-xl text-primary">
                   <ShoppingCart className="w-6 h-6" />
@@ -216,7 +216,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         key={`${item.id}-${item.selectedGender}`}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex gap-4 p-4 bg-gray-50 rounded-3xl border border-gray-100 group"
+                        className="flex gap-4 p-4 bg-white/40 backdrop-blur-lg rounded-3xl border border-white/30 group"
                       >
                         <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 border border-gray-200">
                           <img src={item.photoUrl} alt={item.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
@@ -237,7 +237,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             </button>
                           </div>
                           <div className="flex justify-between items-center">
-                            <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-1">
+                            <div className="flex items-center gap-3 bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-1">
                               <button
                                 onClick={() => updateQuantity(item.id, item.selectedGender, Math.max(1, item.quantity - 1))}
                                 className="p-1 hover:bg-gray-50 rounded-lg text-gray-500"
@@ -282,7 +282,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                                 setOrderForm({ ...orderForm, phone: value });
                               }
                             }}
-                            className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                            className="w-full px-4 py-3 bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                             placeholder="09123456789 (11 digits)"
                           />
                         </div>
@@ -297,7 +297,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             type="text"
                             value={orderForm.telegram}
                             onChange={e => setOrderForm({ ...orderForm, telegram: e.target.value })}
-                            className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                            className="w-full px-4 py-3 bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                             placeholder="@username or phone number"
                           />
                         </div>
@@ -311,7 +311,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           required
                           value={orderForm.paymentMethod}
                           onChange={e => setOrderForm({ ...orderForm, paymentMethod: e.target.value })}
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm font-medium"
+                          className="w-full px-4 py-3 bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm font-medium"
                         >
                           <option value="cod">Cash on Delivery</option>
                           <option value="kpay">KBZPay</option>
@@ -329,7 +329,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           rows={3}
                           value={orderForm.address}
                           onChange={e => setOrderForm({ ...orderForm, address: e.target.value })}
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none text-sm"
+                          className="w-full px-4 py-3 bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none text-sm"
                           placeholder="Delivery address..."
                         />
                       </div>

@@ -13,71 +13,77 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-white/60 backdrop-blur-sm border-t border-gray-100 pt-16 pb-8">
+    <footer className="bg-white/40 backdrop-blur-xl border-t border-white/20 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="p-1.5 bg-primary rounded-lg">
+              <div className="p-1.5 bg-primary rounded-lg shadow-lg shadow-primary/20">
                 <Fish className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-xl text-gray-900 tracking-tight">Guppy Studio</span>
+              <span className="font-bold text-xl text-sky-950 tracking-tight">Guppy Studio</span>
             </div>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-sky-900/70 leading-relaxed max-w-xs font-medium">
               Your premier destination for high-quality guppies, bettas, and aquatic accessories. Dive into our world today.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-500">
-              <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
-              <li><a href="/shop" className="hover:text-primary transition-colors">Shop</a></li>
-              <li><a href="/about" className="hover:text-primary transition-colors">About</a></li>
+            <h4 className="font-bold text-sky-950 text-sm uppercase tracking-widest mb-6">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-sky-900/60 font-medium">
+              <li><a href="/" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" /> Home</a></li>
+              <li><a href="/shop" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" /> Shop</a></li>
+              <li><a href="/about" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" /> About</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
+            <h4 className="font-bold text-sky-950 text-sm uppercase tracking-widest mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-sky-900/60 font-medium">
+              <li className="flex items-center gap-3">
+                <div className="p-2 bg-white/50 rounded-lg border border-white/40 shadow-sm">
+                  <Mail className="w-4 h-4 text-primary" />
+                </div>
                 butchh246@gmail.com
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
+              <li className="flex items-center gap-3">
+                <div className="p-2 bg-white/50 rounded-lg border border-white/40 shadow-sm">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
                 +95 9799997070
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-primary" />
+              <li className="flex items-center gap-3">
+                <div className="p-2 bg-white/50 rounded-lg border border-white/40 shadow-sm">
+                  <MapPin className="w-4 h-4 text-primary" />
+                </div>
                 North Dagon, Yangon
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Follow Us</h4>
+            <h4 className="font-bold text-sky-950 text-sm uppercase tracking-widest mb-6">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-white rounded-full border border-gray-200 text-gray-400 hover:text-primary hover:border-primary/20 transition-all" title="Facebook">
-                <Facebook className="w-4 h-4" />
+              <a href="#" className="p-3 bg-white/50 backdrop-blur-md rounded-2xl border border-white/40 text-sky-950 hover:bg-primary hover:text-white transition-all shadow-sm" title="Facebook">
+                <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://t.me/Duhhh_3" target="_blank" rel="noopener noreferrer" className="p-2 bg-white rounded-full border border-gray-200 text-gray-400 hover:text-primary hover:border-primary/20 transition-all" title="Telegram">
-                <Send className="w-4 h-4" />
+              <a href="https://t.me/Duhhh_3" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/50 backdrop-blur-md rounded-2xl border border-white/40 text-sky-950 hover:bg-primary hover:text-white transition-all shadow-sm" title="Telegram">
+                <Send className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 bg-white rounded-full border border-gray-200 text-gray-400 hover:text-primary hover:border-primary/20 transition-all" title="TikTok">
-                <TikTokIcon className="w-4 h-4" />
+              <a href="#" className="p-3 bg-white/50 backdrop-blur-md rounded-2xl border border-white/40 text-sky-950 hover:bg-primary hover:text-white transition-all shadow-sm" title="TikTok">
+                <TikTokIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-400">
+        <div className="pt-8 border-t border-sky-900/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-xs text-sky-900/40">
             © 2026 Guppy Studio. All rights reserved.
           </p>
-          <div className="flex gap-6 text-xs text-gray-400">
-            <a href="#" className="hover:text-gray-600">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-600">Terms of Service</a>
+          <div className="flex gap-8 text-xs text-sky-900/40">
+            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

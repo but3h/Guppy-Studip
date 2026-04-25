@@ -21,7 +21,10 @@ export default function App() {
     <ErrorBoundary>
       <CartProvider>
         <Router>
-          <div className="min-h-screen flex flex-col font-sans text-gray-900 selection:bg-primary/20 relative bg-gray-50">
+          <div className="min-h-screen flex flex-col font-sans text-gray-900 selection:bg-primary/20 relative bg-slate-50/50">
+            {/* Aesthetic Background */}
+            <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-gradient-to-tr from-sky-50 via-white to-blue-50" />
+
             <Navbar onOpenCart={() => setIsCartOpen(true)} />
             <main className="flex-grow">
               <AnimatePresence mode="wait">

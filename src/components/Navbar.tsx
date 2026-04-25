@@ -74,7 +74,7 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <nav className="sticky top-0 z-50 bg-white/40 backdrop-blur-xl border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link to="/" className="flex items-center gap-2 group">
@@ -138,7 +138,7 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
       </nav>
 
       {/* Mobile Bottom Navigation */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-gray-100 pb-safe">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-xl border-t border-white/20 pb-safe">
         <div className="flex justify-around items-center h-16">
           {navItems.map((item) => (
             <Link

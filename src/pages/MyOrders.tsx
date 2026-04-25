@@ -40,13 +40,13 @@ export default function MyOrders() {
   }, [navigate]);
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">My Orders</h1>
@@ -60,7 +60,7 @@ export default function MyOrders() {
                 key={order.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-[2.5rem] p-6 sm:p-8 shadow-sm border border-gray-100 hover:border-primary/20 hover:shadow-xl transition-all group"
+                className="bg-white/60 backdrop-blur-xl rounded-[2.5rem] p-6 sm:p-8 shadow-xl border border-white/40 hover:border-primary/40 transition-all group"
               >
                 <div className="flex flex-col sm:flex-row justify-between gap-6 mb-8">
                   <div className="space-y-4">
@@ -95,10 +95,10 @@ export default function MyOrders() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-y border-gray-50">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-y border-white/20">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gray-50 rounded-xl">
+                      <div className="p-2 bg-white/40 backdrop-blur-sm rounded-xl border border-white/20">
                         <MapPin className="w-4 h-4 text-gray-400" />
                       </div>
                       <div>
@@ -107,7 +107,7 @@ export default function MyOrders() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gray-50 rounded-xl">
+                      <div className="p-2 bg-white/40 backdrop-blur-sm rounded-xl border border-white/20">
                         <Phone className="w-4 h-4 text-gray-400" />
                       </div>
                       <div>
@@ -118,7 +118,7 @@ export default function MyOrders() {
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gray-50 rounded-xl">
+                      <div className="p-2 bg-white/40 backdrop-blur-sm rounded-xl border border-white/20">
                         <CreditCard className="w-4 h-4 text-gray-400" />
                       </div>
                       <div>
@@ -133,7 +133,7 @@ export default function MyOrders() {
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Order Items</p>
                   <div className="flex flex-wrap gap-3">
                     {order.items?.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-100 min-w-[200px]">
+                      <div key={idx} className="flex items-center gap-3 p-3 bg-white/40 backdrop-blur-sm rounded-2xl border border-white/20 min-w-[200px]">
                         <div className="p-2 bg-white rounded-xl shadow-sm">
                           <Package className="w-4 h-4 text-primary" />
                         </div>

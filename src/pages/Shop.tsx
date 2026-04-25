@@ -68,7 +68,7 @@ export default function Shop() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
           <div>
@@ -104,7 +104,7 @@ export default function Shop() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:shadow-2xl transition-all flex flex-col"
+                  className="bg-white/60 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/40 group hover:shadow-2xl transition-all flex flex-col shadow-sm"
                 >
                   <div 
                     className="h-56 overflow-hidden relative cursor-pointer"
@@ -184,7 +184,7 @@ export default function Shop() {
                     )}
 
                     <div className="mb-4">
-                      <div className="flex gap-1 p-1 bg-gray-50 rounded-xl border border-gray-100">
+                      <div className="flex gap-1 p-1 bg-white/40 backdrop-blur-md rounded-xl border border-white/20">
                         {(['male', 'female'] as const).map((g) => (
                           <button
                             key={g}
@@ -202,7 +202,7 @@ export default function Shop() {
                     </div>
 
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="flex items-center bg-gray-50 border border-gray-100 rounded-xl p-1">
+                      <div className="flex items-center bg-white/40 backdrop-blur-md border border-white/20 rounded-xl p-1">
                         <button 
                           onClick={() => setQuantities(prev => ({ ...prev, [product.id]: Math.max(1, (prev[product.id] || 1) - 1) }))}
                           className="p-1.5 hover:bg-white rounded-lg text-gray-500 transition-colors"

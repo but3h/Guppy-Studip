@@ -289,7 +289,7 @@ export default function Admin() {
   };
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
     </div>
   );
@@ -297,14 +297,14 @@ export default function Admin() {
   if (!isAdmin) return null;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
           <p className="text-gray-500 text-lg">Manage your aquatic inventory and products.</p>
           
           {/* Debug Info - Only visible to admin for troubleshooting */}
-          <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200 text-xs text-gray-500 w-fit shadow-sm">
+          <div className="mt-4 p-3 bg-white/60 backdrop-blur-md rounded-xl border border-white/40 text-xs text-gray-500 w-fit shadow-sm">
             <p>Logged in as: <span className="font-mono font-bold text-gray-700">{auth.currentUser?.email}</span></p>
             <p>Admin status: <span className={`font-bold ${isAdmin ? 'text-green-600' : 'text-red-600'}`}>{isAdmin ? 'VERIFIED ADMIN' : 'NOT ADMIN'}</span></p>
           </div>
@@ -324,7 +324,7 @@ export default function Admin() {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex gap-4 mb-8 p-1.5 bg-white rounded-2xl w-fit border border-gray-200 shadow-sm">
+        <div className="flex gap-4 mb-8 p-1.5 bg-white/40 backdrop-blur-lg rounded-2xl w-fit border border-white/30 shadow-sm">
           <button 
             onClick={() => setActiveTab('publish')}
             className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all ${
@@ -368,7 +368,7 @@ export default function Admin() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-white rounded-[2.5rem] p-8 sm:p-10 shadow-sm border border-gray-100"
+                className="bg-white/60 backdrop-blur-xl rounded-[2.5rem] p-8 sm:p-10 shadow-xl border border-white/40"
               >
                 <div className="max-w-3xl mx-auto">
                   <div className="flex items-center gap-4 mb-8">
@@ -575,7 +575,7 @@ export default function Admin() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
                         className={`flex flex-col sm:flex-row items-center gap-6 p-6 rounded-3xl border transition-all group ${
-                          (p.maleStock === 0 && p.femaleStock === 0) ? 'bg-red-50 border-red-100' : (p.maleStock < 5 || p.femaleStock < 5) ? 'bg-orange-50 border-orange-100' : 'bg-white border-gray-100 hover:border-primary/20 hover:shadow-lg'
+                          (p.maleStock === 0 && p.femaleStock === 0) ? 'bg-red-50/80 border-red-100' : (p.maleStock < 5 || p.femaleStock < 5) ? 'bg-orange-50/80 border-orange-100' : 'bg-white/60 backdrop-blur-md border-white/40 hover:border-primary/40 hover:shadow-lg'
                         }`}
                       >
                         <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 border border-gray-200 relative">
@@ -775,7 +775,7 @@ export default function Admin() {
                   )}
                 </div>
 
-                <div className="flex flex-wrap gap-2 mb-8 p-1 bg-gray-100 rounded-xl w-fit">
+                <div className="flex flex-wrap gap-2 mb-8 p-1 bg-white/20 backdrop-blur-md rounded-2xl w-fit border border-white/20">
                   <button
                     onClick={() => setOrderView('active')}
                     className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
@@ -811,7 +811,7 @@ export default function Admin() {
                         placeholder="Search order ID..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-10 pr-10 py-2 bg-gray-100 border border-transparent rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all transition-all"
+                        className="w-full pl-10 pr-10 py-2 bg-white/40 backdrop-blur-md border border-white/20 rounded-xl text-xs focus:bg-white/60 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-white placeholder-blue-100"
                       />
                       {searchQuery && (
                         <button
@@ -844,7 +844,7 @@ export default function Admin() {
 
                     if (filteredOrders.length === 0) {
                       return (
-                        <div className="text-center py-20 bg-gray-50 rounded-[2rem] border-2 border-dashed border-gray-200">
+                        <div className="text-center py-20 bg-white/20 backdrop-blur-md rounded-[2.5rem] border-2 border-dashed border-white/20">
                           <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                           <h3 className="text-lg font-bold text-gray-900 mb-1">
                             {searchQuery ? 'No matching orders' : 'No orders yet'}
@@ -859,13 +859,13 @@ export default function Admin() {
                     }
 
                     return filteredOrders.map(order => (
-                      <div key={order.id} className="p-4 sm:p-6 rounded-3xl border border-gray-100 bg-white hover:border-primary/20 hover:shadow-xl transition-all group">
+                      <div key={order.id} className="p-4 sm:p-6 rounded-[2.5rem] border border-white/40 bg-white/60 backdrop-blur-xl hover:border-primary/40 hover:shadow-2xl transition-all group">
                       <div className="flex flex-col md:flex-row justify-between gap-6">
                         <div className="space-y-4 flex-grow min-w-0">
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div className="flex flex-wrap items-center gap-3">
                               <div className="group/id relative">
-                                <span className="text-[10px] font-mono font-bold text-gray-400 bg-gray-50 px-2 py-1 rounded border border-gray-100 uppercase">
+                                <span className="text-[10px] font-mono font-bold text-white bg-white/20 backdrop-blur-sm px-2 py-1 rounded border border-white/30 uppercase">
                                   ID: #{order.id.slice(-8).toUpperCase()}
                                 </span>
                                 <div className="absolute bottom-full left-0 mb-2 hidden group-hover/id:block z-50">
@@ -898,18 +898,18 @@ export default function Admin() {
                           </div>
 
                           {order.items && (
-                            <div className="bg-white p-3 rounded-2xl border border-gray-100 space-y-2">
+                            <div className="bg-white/40 backdrop-blur-md p-3 rounded-2xl border border-white/20 space-y-2">
                               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Order Items</p>
                               <div className="space-y-1.5">
                                 {order.items.map((item: any, idx: number) => (
                                   <div key={idx} className="flex justify-between items-center text-[11px]">
                                     <div className="flex items-center gap-2">
-                                      <span className="w-4 h-4 bg-gray-100 rounded flex items-center justify-center font-bold text-[9px]">
+                                      <span className="w-4 h-4 bg-white/20 backdrop-blur-sm rounded flex items-center justify-center font-bold text-[9px] text-white">
                                         {item.quantity}x
                                       </span>
-                                      <span className="font-medium text-gray-700 line-clamp-1">{item.productName} ({item.gender})</span>
+                                      <span className="font-medium text-white line-clamp-1">{item.productName} ({item.gender})</span>
                                     </div>
-                                    <span className="font-bold text-gray-900 whitespace-nowrap">{(item.totalPrice || 0).toLocaleString()} MMK</span>
+                                    <span className="font-bold text-white whitespace-nowrap">{(item.totalPrice || 0).toLocaleString()} MMK</span>
                                   </div>
                                 ))}
                               </div>
@@ -917,7 +917,7 @@ export default function Admin() {
                           )}
 
                           {order.customerName && (
-                            <div className="flex items-center gap-3 bg-white p-3 rounded-2xl border border-gray-100">
+                            <div className="flex items-center gap-3 bg-white/40 backdrop-blur-md p-3 rounded-2xl border border-white/20">
                               <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 flex-shrink-0">
                                 <img 
                                   src={order.customerPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(order.customerName)}&background=random`} 
@@ -928,18 +928,18 @@ export default function Admin() {
                               </div>
                               <div className="min-w-0">
                                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Account Info</p>
-                                <p className="text-xs font-bold text-gray-900 truncate">{order.customerName}</p>
-                                <p className="text-[10px] text-gray-500 truncate">{order.customerEmail}</p>
+                                <p className="text-xs font-bold text-white truncate">{order.customerName}</p>
+                                <p className="text-[10px] text-blue-100 truncate">{order.customerEmail}</p>
                               </div>
                             </div>
                           )}
 
-                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 bg-white p-3 rounded-2xl border border-gray-100">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 bg-white/40 backdrop-blur-md p-3 rounded-2xl border border-white/20">
                             <div className="flex items-start gap-2">
                               <Phone className="w-4 h-4 text-gray-400 mt-0.5" />
                               <div className="min-w-0">
                                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Phone</p>
-                                <p className="text-xs font-bold text-gray-900 truncate">{order.phone}</p>
+                                <p className="text-xs font-bold text-white truncate">{order.phone}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
@@ -948,7 +948,7 @@ export default function Admin() {
                               </svg>
                               <div className="min-w-0">
                                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Telegram</p>
-                                <p className="text-xs font-bold text-gray-900 truncate">{order.telegram || '-'}</p>
+                                <p className="text-xs font-bold text-white truncate">{order.telegram || '-'}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
@@ -956,9 +956,9 @@ export default function Admin() {
                               <div className="min-w-0">
                                 <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Payment</p>
                                 <div className="flex items-center gap-2">
-                                  <p className="text-xs font-bold text-gray-900 uppercase truncate">{order.paymentMethod}</p>
+                                  <p className="text-xs font-bold text-white uppercase truncate">{order.paymentMethod}</p>
                                   <span className={`px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider ${
-                                    order.paymentStatus === 'paid' ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'
+                                    order.paymentStatus === 'paid' ? 'bg-emerald-100/90 text-emerald-900 shadow-sm backdrop-blur-sm' : 'bg-red-100/90 text-red-900 shadow-sm backdrop-blur-sm'
                                   }`}>
                                     {order.paymentStatus || 'unpaid'}
                                   </span>
@@ -967,11 +967,11 @@ export default function Admin() {
                             </div>
                           </div>
 
-                          <div className="flex items-start gap-2 bg-white p-3 rounded-2xl border border-gray-100">
+                          <div className="flex items-start gap-2 bg-white/40 backdrop-blur-md p-3 rounded-2xl border border-white/20">
                             <MapPin className="w-4 h-4 text-gray-400 mt-0.5" />
                             <div className="min-w-0">
                               <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Delivery Address</p>
-                              <p className="text-xs text-gray-600 leading-tight line-clamp-2">{order.address}</p>
+                              <p className="text-xs text-blue-50 leading-tight line-clamp-2">{order.address}</p>
                             </div>
                           </div>
                         </div>

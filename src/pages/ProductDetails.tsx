@@ -90,7 +90,7 @@ export default function ProductDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4 mb-8">
             <button 
@@ -111,7 +111,7 @@ export default function ProductDetails() {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-4"
           >
-            <div className="aspect-square bg-white rounded-[3rem] overflow-hidden border border-gray-100 shadow-sm relative group">
+            <div className="aspect-square bg-white/60 backdrop-blur-xl rounded-[3rem] overflow-hidden border border-white/40 shadow-sm relative group">
               <img 
                 src={product.photoUrl} 
                 alt={product.name} 
@@ -124,7 +124,7 @@ export default function ProductDetails() {
             </div>
 
             {product.videoUrl && (
-              <div className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-sm">
+              <div className="bg-white/60 backdrop-blur-xl rounded-[2rem] p-6 border border-white/40 shadow-sm">
                 <div className="flex items-center gap-3 mb-4 text-gray-900">
                   <div className="p-2 bg-primary/10 rounded-xl">
                     <Video className="w-5 h-5 text-primary" />
@@ -157,7 +157,7 @@ export default function ProductDetails() {
             animate={{ opacity: 1, x: 0 }}
             className="flex flex-col"
           >
-            <div className="bg-white rounded-[3rem] p-8 sm:p-12 border border-gray-100 shadow-sm flex-grow">
+            <div className="bg-white/60 backdrop-blur-xl rounded-[3rem] p-8 sm:p-12 border border-white/40 shadow-sm flex-grow">
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
                   {(product.maleStock || 0) === 0 && (product.femaleStock || 0) === 0 ? (
@@ -212,8 +212,8 @@ export default function ProductDetails() {
                         onClick={() => setSelectedGender(g)}
                         className={`px-6 py-3 rounded-2xl font-bold transition-all border ${
                           selectedGender === g
-                            ? 'bg-gray-900 text-white border-gray-900 shadow-lg shadow-gray-900/20'
-                            : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'
+                            ? 'bg-white/90 text-gray-900 border-white shadow-xl backdrop-blur-md'
+                            : 'bg-white/40 text-gray-600 border-white/30 hover:border-white/60 backdrop-blur-md'
                         }`}
                       >
                         {g === 'male' ? 'Male' : 'Female'}
@@ -234,7 +234,7 @@ export default function ProductDetails() {
                     <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Specifications</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {Object.entries(product.specs).map(([key, val]) => (
-                        <div key={key} className="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                        <div key={key} className="p-4 bg-white/40 backdrop-blur-md rounded-2xl border border-white/30">
                           <div className="text-xs text-gray-400 uppercase tracking-tight mb-1">{key}</div>
                           <div className="font-bold text-gray-900">{val}</div>
                         </div>
@@ -260,19 +260,19 @@ export default function ProductDetails() {
               </div>
 
               <div className="flex items-center gap-6 mb-12">
-                <div className="flex items-center gap-4 bg-gray-50 p-2 rounded-2xl border border-gray-100">
+                <div className="flex items-center gap-4 bg-white/40 backdrop-blur-md p-2 rounded-2xl border border-white/30">
                   <button 
                     onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                    className="w-12 h-12 flex items-center justify-center bg-white rounded-xl border border-gray-200 hover:border-primary hover:text-primary transition-all shadow-sm"
+                    className="w-12 h-12 flex items-center justify-center bg-white/40 backdrop-blur-md rounded-xl border border-white/30 hover:border-primary hover:text-primary transition-all shadow-sm"
                   >
                     <Minus className="w-5 h-5" />
                   </button>
                   <div className="w-12 text-center">
-                    <span className="text-xl font-bold text-gray-900">{quantity}</span>
+                    <span className="text-xl font-bold text-white">{quantity}</span>
                   </div>
                   <button 
                     onClick={() => setQuantity(prev => Math.min(selectedGender === 'male' ? (product.maleStock || 0) : (product.femaleStock || 0), prev + 1))}
-                    className="w-12 h-12 flex items-center justify-center bg-white rounded-xl border border-gray-200 hover:border-primary hover:text-primary transition-all shadow-sm"
+                    className="w-12 h-12 flex items-center justify-center bg-white/40 backdrop-blur-md rounded-xl border border-white/30 hover:border-primary hover:text-primary transition-all shadow-sm"
                   >
                     <Plus className="w-5 h-5" />
                   </button>
