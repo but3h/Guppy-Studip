@@ -22,37 +22,34 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center overflow-hidden bg-sky-900">
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=2000" 
-            alt="Vibrant Coral Reef" 
-            className="w-full h-full object-cover opacity-40"
+            src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&q=80&w=2000" 
+            alt="Guppy Background" 
+            className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-sky-900 via-sky-900/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl"
           >
-            <span className="inline-block px-3 py-1 bg-sky-400/20 text-sky-400 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-              Dive Into Elegance
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Bring the <span className="text-primary-light">Ocean Home</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+              Premium <span className="text-primary">Guppy</span> Studio
             </h1>
-            <p className="text-xl text-gray-300 mb-10 leading-relaxed">
-              Discover a vibrant world of exotic guppies, bettas, and premium aquatic life. Hand-picked for beauty, health, and vitality.
+            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Discover the most vibrant and healthy guppies for your aquarium. 
+              Expertly bred, carefully delivered.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/shop" className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all flex items-center gap-2 group">
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/shop" className="px-10 py-5 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all flex items-center gap-3 group shadow-2xl shadow-primary/20">
                 Explore Our Collection
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </motion.div>
@@ -64,14 +61,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Guppy Studio?</h2>
-            <p className="text-gray-500">We are dedicated to providing the healthiest fish and the best advice for your aquarium journey.</p>
+            <p className="text-gray-500">We are dedicated to providing the healthiest fish and best advice for your aquarium journey.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Fish, title: "Premium Strains", desc: "We specialize in rare and high-quality guppy and betta strains with vibrant colors." },
-              { icon: Droplets, title: "Healthy Environment", desc: "Our fish are raised in meticulously maintained tanks to ensure they arrive healthy." },
-              { icon: Star, title: "Expert Guidance", desc: "Whether you're a beginner or a pro, our team is here to help your aquarium thrive." }
+              { icon: Fish, title: "Premium Species", desc: "We specialize in rare and high-quality guppy and betta strains with vibrant colors." },
+              { icon: Droplets, title: "Healthy Environment", desc: "Our fish are raised in meticulously maintained tanks to ensure they arrive healthy at your doorstep." },
+              { icon: Star, title: "Expert Guidance", desc: "Whether you're a beginner or an expert, our team is here to help your aquarium thrive." }
             ].map((benefit, i) => (
               <motion.div 
                 key={i}

@@ -67,6 +67,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         customerPhoto: user?.photoURL || '',
         createdAt: serverTimestamp(),
         status: 'pending',
+        paymentStatus: 'unpaid',
         isArchived: false
       });
 
@@ -121,7 +122,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-gray-900">Your Cart</h2>
-                  <p className="text-xs text-gray-400 font-medium uppercase tracking-widest">{items.length} Items</p>
+                  <p className="text-xs text-gray-400 font-medium uppercase tracking-widest">{items.length} items</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -129,7 +130,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   <div className="flex items-center gap-2">
                     {showClearConfirm ? (
                       <div className="flex items-center gap-2 bg-red-50 p-1 rounded-xl animate-in fade-in slide-in-from-right-2">
-                        <span className="text-[10px] font-bold text-red-600 px-2">Reset?</span>
+                        <span className="text-[10px] font-bold text-red-600 px-2">Clear cart?</span>
                         <button
                           onClick={() => {
                             clearCart();
@@ -152,7 +153,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-red-500 hover:bg-red-50 rounded-xl transition-all"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
-                        Reset Cart
+                        Clear Cart
                       </button>
                     )}
                   </div>
@@ -176,8 +177,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   >
                     <CheckCircle2 className="w-12 h-12 text-emerald-600" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
-                  <p className="text-gray-500 mb-8">Thank you for your purchase. We'll contact you shortly.</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Order placed!</h3>
+                  <p className="text-gray-500 mb-8">Thank you for your purchase. We will contact you soon.</p>
                   
                   {isAdmin && (
                     <button
@@ -225,7 +226,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             <div>
                               <h4 className="font-bold text-gray-900 line-clamp-1 text-sm">{item.name}</h4>
                               <span className="text-[10px] font-bold text-primary uppercase tracking-wider bg-primary/5 px-2 py-0.5 rounded-md">
-                                {item.selectedGender}
+                                {item.selectedGender === 'male' ? 'Male' : 'Female'}
                               </span>
                             </div>
                             <button
@@ -264,7 +265,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       <div className="grid grid-cols-1 gap-4">
                         <div className="space-y-2">
                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1 flex items-center gap-2">
-                            <Phone className="w-3 h-3" /> Phone
+                            <Phone className="w-3 h-3" /> Phone Number
                           </label>
                           <input
                             required
@@ -304,7 +305,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                       <div className="space-y-2">
                         <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1 flex items-center gap-2">
-                          <CreditCard className="w-3 h-3" /> Payment
+                          <CreditCard className="w-3 h-3" /> Payment Method
                         </label>
                         <select
                           required
@@ -356,7 +357,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           ) : (
                             <>
                               <Package className="w-5 h-5" />
-                              Complete Order
+                              Confirm Order
                             </>
                           )}
                         </button>

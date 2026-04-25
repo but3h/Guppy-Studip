@@ -13,6 +13,7 @@
         "photoUrl": { "type": "string", "format": "url" },
         "maleStock": { "type": "number", "description": "Current male stock quantity" },
         "femaleStock": { "type": "number", "description": "Current female stock quantity" },
+        "videoUrl": { "type": "string", "format": "url", "description": "Optional video showcase URL" },
         "specs": { "type": "object", "description": "Key specifications (e.g., Color: Blue, Type: Halfmoon)" },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" }
@@ -62,10 +63,11 @@
         "paymentMethod": { "type": "string", "enum": ["cod", "kpay", "wave", "bank"] },
         "address": { "type": "string" },
         "status": { "type": "string", "enum": ["pending", "confirmed", "shipped", "delivered", "cancelled"] },
+        "paymentStatus": { "type": "string", "enum": ["unpaid", "paid"], "description": "Order payment status" },
         "isArchived": { "type": "boolean", "description": "Whether the order is archived in history" },
         "createdAt": { "type": "string", "format": "date-time" }
       },
-      "required": ["items", "totalPrice", "phone", "paymentMethod", "address", "status", "createdAt"]
+      "required": ["items", "totalPrice", "phone", "paymentMethod", "address", "status", "paymentStatus", "createdAt", "customerUid", "customerName", "customerEmail", "customerPhoto"]
     }
   },
   "firestore": {

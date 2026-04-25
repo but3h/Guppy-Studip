@@ -6,7 +6,7 @@ import { Product, UserProfile } from '../types';
 import { handleFirestoreError, OperationType } from '../lib/firestore-errors';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, ArrowLeft, CheckCircle2, Phone, MapPin, CreditCard, UserCircle, X, Package, ShieldCheck, Truck, Plus, Minus } from 'lucide-react';
+import { ShoppingCart, ArrowLeft, CheckCircle2, Phone, MapPin, CreditCard, UserCircle, X, Package, ShieldCheck, Truck, Plus, Minus, Video } from 'lucide-react';
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -78,7 +78,7 @@ export default function ProductDetails() {
           <Package className="w-10 h-10 text-gray-400" />
         </div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Product Not Found</h2>
-        <p className="text-gray-500 mb-8">The product you're looking for doesn't exist or has been removed.</p>
+        <p className="text-gray-500 mb-8">The product you are looking for does not exist or has been removed.</p>
         <button 
           onClick={() => navigate('/shop')}
           className="px-8 py-3 bg-gray-900 text-white rounded-2xl font-bold hover:bg-primary transition-all flex items-center gap-2"
@@ -122,6 +122,33 @@ export default function ProductDetails() {
                 }}
               />
             </div>
+
+            {product.videoUrl && (
+              <div className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-sm">
+                <div className="flex items-center gap-3 mb-4 text-gray-900">
+                  <div className="p-2 bg-primary/10 rounded-xl">
+                    <Video className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold">Video Showcase</h3>
+                </div>
+                <div className="aspect-video rounded-2xl overflow-hidden bg-gray-900 border border-gray-100">
+                  {product.videoUrl.includes('youtube.com') || product.videoUrl.includes('youtu.be') ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${product.videoUrl.split('v=')[1] || product.videoUrl.split('/').pop()}`}
+                      className="w-full h-full"
+                      allowFullScreen
+                      title="YouTube Video Showcase"
+                    />
+                  ) : (
+                    <video
+                      src={product.videoUrl}
+                      controls
+                      className="w-full h-full object-contain"
+                    />
+                  )}
+                </div>
+              </div>
+            )}
           </motion.div>
 
           {/* Product Info */}
@@ -135,34 +162,34 @@ export default function ProductDetails() {
                 <div className="flex items-center gap-3 mb-4">
                   {(product.maleStock || 0) === 0 && (product.femaleStock || 0) === 0 ? (
                     <span className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                      Sold Out
+                      Out of Stock
                     </span>
                   ) : selectedGender === 'male' ? (
                     (product.maleStock || 0) === 0 ? (
                       <span className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Male Sold Out
+                        Male Out of Stock
                       </span>
                     ) : (product.maleStock || 0) < 5 ? (
                       <span className="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Low Male Stock: {product.maleStock || 0} Left
+                        Low Male Stock: Only {product.maleStock || 0} left
                       </span>
                     ) : (
                       <span className="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Male In Stock: {product.maleStock || 0} Available
+                        Male In Stock: {product.maleStock || 0} available
                       </span>
                     )
                   ) : (
                     (product.femaleStock || 0) === 0 ? (
                       <span className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Female Sold Out
+                        Female Out of Stock
                       </span>
                     ) : (product.femaleStock || 0) < 5 ? (
                       <span className="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Low Female Stock: {product.femaleStock || 0} Left
+                        Low Female Stock: Only {product.femaleStock || 0} left
                       </span>
                     ) : (
                       <span className="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-xs font-bold uppercase tracking-wider">
-                        Female In Stock: {product.femaleStock || 0} Available
+                        Female In Stock: {product.femaleStock || 0} available
                       </span>
                     )
                   )}
@@ -189,7 +216,7 @@ export default function ProductDetails() {
                             : 'bg-white text-gray-500 border-gray-100 hover:border-gray-300'
                         }`}
                       >
-                        {g.charAt(0).toUpperCase() + g.slice(1)}
+                        {g === 'male' ? 'Male' : 'Female'}
                       </button>
                     ))}
                   </div>
@@ -204,7 +231,7 @@ export default function ProductDetails() {
 
                 {product.specs && Object.keys(product.specs).length > 0 && (
                   <div>
-                    <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Product Specifications</h3>
+                    <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Specifications</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {Object.entries(product.specs).map(([key, val]) => (
                         <div key={key} className="p-4 bg-gray-50 rounded-2xl border border-gray-100">
@@ -228,7 +255,7 @@ export default function ProductDetails() {
                   <div className="p-2 bg-purple-50 rounded-lg text-purple-600">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
-                  <span className="text-sm font-medium">Quality Assured</span>
+                  <span className="text-sm font-medium">Quality Guaranteed</span>
                 </div>
               </div>
 

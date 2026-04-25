@@ -6,7 +6,7 @@ import { Product, UserProfile } from '../types';
 import { handleFirestoreError, OperationType } from '../lib/firestore-errors';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { Filter, ShoppingCart, Search, SlidersHorizontal, X, Phone, MapPin, CreditCard, UserCircle, CheckCircle2, Plus, Minus, Package } from 'lucide-react';
+import { Filter, ShoppingCart, Search, SlidersHorizontal, X, Phone, MapPin, CreditCard, UserCircle, CheckCircle2, Plus, Minus, Package, Video } from 'lucide-react';
 
 export default function Shop() {
   const navigate = useNavigate();
@@ -122,16 +122,16 @@ export default function Shop() {
                     <div className="absolute top-3 left-3 flex flex-col gap-2">
                       {(product.maleStock || 0) === 0 && (product.femaleStock || 0) === 0 ? (
                         <span className="px-2 py-1 bg-red-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
-                          Sold Out
+                          Out of Stock
                         </span>
                       ) : (selectedGenders[product.id] || 'male') === 'male' ? (
                         (product.maleStock || 0) === 0 ? (
                           <span className="px-2 py-1 bg-red-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
-                            Male Sold Out
+                            Male Out of Stock
                           </span>
                         ) : (product.maleStock || 0) < 5 ? (
                           <span className="px-2 py-1 bg-orange-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
-                            Only {product.maleStock || 0} Male Left
+                            {product.maleStock || 0} males left
                           </span>
                         ) : (
                           <span className="px-2 py-1 bg-emerald-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
@@ -141,17 +141,24 @@ export default function Shop() {
                       ) : (
                         (product.femaleStock || 0) === 0 ? (
                           <span className="px-2 py-1 bg-red-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
-                            Female Sold Out
+                            Female Out of Stock
                           </span>
                         ) : (product.femaleStock || 0) < 5 ? (
                           <span className="px-2 py-1 bg-orange-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
-                            Only {product.femaleStock || 0} Female Left
+                            {product.femaleStock || 0} females left
                           </span>
                         ) : (
                           <span className="px-2 py-1 bg-emerald-500 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
                             Female In Stock
                           </span>
                         )
+                      )}
+                      
+                      {product.videoUrl && (
+                        <div className="flex items-center gap-1.5 px-2 py-1 bg-black/50 backdrop-blur-sm text-white rounded-lg text-[10px] font-bold uppercase tracking-wider w-fit">
+                          <Video className="w-3 h-3" />
+                          Showcase
+                        </div>
                       )}
                     </div>
                   </div>
@@ -188,7 +195,7 @@ export default function Shop() {
                                 : 'text-gray-400 hover:text-gray-600'
                             }`}
                           >
-                            {g}
+                            {g === 'male' ? 'Male' : 'Female'}
                           </button>
                         ))}
                       </div>

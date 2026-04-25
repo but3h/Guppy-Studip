@@ -9,8 +9,8 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-md w-full bg-white rounded-[2.5rem] p-10 shadow-sm border border-gray-100 text-center"
       >
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">About Us</h1>
-        <p className="text-gray-500 mb-10 text-sm">Get in touch with Guppy Studio for premium aquatic life.</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
+        <p className="text-gray-500 mb-10 text-sm">Get in touch with Guppy Studio for any inquiries.</p>
         
         <div className="space-y-6">
           <a 
@@ -21,7 +21,7 @@ export default function About() {
               <Mail className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Email Address</p>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Email Us</p>
               <p className="text-gray-900 font-bold">butchh246@gmail.com</p>
             </div>
           </a>
@@ -49,7 +49,7 @@ export default function About() {
               <Phone className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Phone Number</p>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Call Us</p>
               <p className="text-gray-900 font-bold">+95 9799997070</p>
             </div>
           </a>

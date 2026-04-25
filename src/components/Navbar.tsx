@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Fish, ShoppingBag, Info, ShieldCheck, LogIn, LogOut } from 'lucide-react';
+import { Fish, ShoppingBag, Info, ShieldCheck, LogIn, LogOut, Package } from 'lucide-react';
 import { auth } from '../firebase';
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { useEffect, useState } from 'react';
@@ -61,8 +61,12 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
   const navItems = [
     { name: 'Home', path: '/', icon: Fish },
     { name: 'Shop', path: '/shop', icon: ShoppingBag },
-    { name: 'About', path: '/about', icon: Info },
+    { name: 'About Us', path: '/about', icon: Info },
   ];
+
+  if (userProfile) {
+    navItems.push({ name: 'My Orders', path: '/orders', icon: Package });
+  }
 
   if (userProfile?.role === 'admin') {
     navItems.push({ name: 'Admin', path: '/admin', icon: ShieldCheck });
@@ -134,7 +138,7 @@ export default function Navbar({ onOpenCart }: NavbarProps) {
       </nav>
 
       {/* Mobile Bottom Navigation */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 pb-safe">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-gray-100 pb-safe">
         <div className="flex justify-around items-center h-16">
           {navItems.map((item) => (
             <Link

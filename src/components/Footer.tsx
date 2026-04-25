@@ -13,7 +13,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-100 pt-16 pb-8">
+    <footer className="bg-white/60 backdrop-blur-sm border-t border-gray-100 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
@@ -21,10 +21,10 @@ export default function Footer() {
               <div className="p-1.5 bg-primary rounded-lg">
                 <Fish className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-lg tracking-tight text-gray-900">Guppy Studio</span>
+              <span className="font-bold text-xl text-gray-900 tracking-tight">Guppy Studio</span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Your premium destination for high-quality guppies, bettas, and aquatic supplies. Dive into the world of Guppy Studio today.
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Your premier destination for high-quality guppies, bettas, and aquatic accessories. Dive into our world today.
             </p>
           </div>
 
@@ -33,7 +33,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
               <li><a href="/shop" className="hover:text-primary transition-colors">Shop</a></li>
-              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/about" className="hover:text-primary transition-colors">About</a></li>
             </ul>
           </div>
 
